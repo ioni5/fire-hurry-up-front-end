@@ -5,6 +5,12 @@ module.exports = {
   },
   extends: 'standard',
   overrides: [
+    {
+      files: ['tests/**/*.js'],
+      env: {
+        jasmine: true
+      }
+    }
   ],
   parserOptions: {
     ecmaVersion: 'latest',
