@@ -25,3 +25,9 @@ jobs:
       run: npm run lint
     - name: 🧪 Run tests
       run: npm test
+
+    - name: 🚨 Coverage and static analysis
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
