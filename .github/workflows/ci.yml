@@ -15,15 +15,15 @@ jobs:
 
     steps:
     - name: 🔍 Checkout source code
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
     - name: 🟢 Use node.js $NODE_VERSION
       uses: actions/setup-node@v3
       with:
         node-version: $NODE_VERSION
         cache: 'npm'
     - name: 📦 Install dependencies
-    - run: npm install
+      run: npm install
     - name: 🚦 Run lint
-    - run: npm run lint
+      run: npm run lint
     - name: 🧪 Run tests
-    - run: npm test
+      run: npm test
