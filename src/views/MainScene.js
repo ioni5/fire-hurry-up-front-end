@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import Player from './Player'
 export default class MainScene extends Phaser.Scene {
   constructor () {
     super({ key: 'mainScene' })
@@ -10,6 +11,9 @@ export default class MainScene extends Phaser.Scene {
     this.load.image('edge', 'assets/edge.png')
     this.load.image('floor', 'assets/floor.png')
     this.load.image('stair', 'assets/stair.png')
+    this.load.spritesheet('player',
+      'assets/player.png',
+      { frameWidth: 32, frameHeight: 32 })
   }
 
   create () {
@@ -33,5 +37,7 @@ export default class MainScene extends Phaser.Scene {
     this.add.image(140, 240, 'stair').setScale(0.5).setOrigin(0, 0)
     // roof
     this.add.image(140, 238, 'floor').setOrigin(0, 0)
+
+    this.player = new Player(this, 150, 400, 'player')
   }
 }
