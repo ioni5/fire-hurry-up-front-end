@@ -1,0 +1,5 @@
+import './assets/sky.jpg'
+import './assets/wall.png'
+import './assets/edge.png'
+import './assets/floor.png'
+import './assets/stair.png'
