@@ -11,4 +11,25 @@ describe('MainScene', () => {
       }
     })
   })
+
+  it('all assets loaded are added to scene', () => {
+    const game = new Phaser.Game({
+      ...config,
+      postBoot: function () {
+        const s = game.scene.getScene(new MainScene().key)
+        let numLoads = 0
+        spyOn(s.load, 'image').and.callFake(() => {
+          numLoads++
+        })
+        let numAddeds = 0
+        spyOn(s.add, 'image').and.callFake(() => {
+          numAddeds++
+        })
+        s.preload()
+        s.create()
+
+        expect(numLoads).toEqual(numAddeds)
+      }
+    })
+  })
 })
